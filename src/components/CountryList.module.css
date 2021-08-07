@@ -5,6 +5,9 @@
     margin: 0;
     border: 1px solid;
     border-radius: 5px;
+    width: 90%;
+    display: block;
+    margin-bottom: 15px;
 }
 .sort__input
 {
@@ -12,6 +15,7 @@
     text-align: left;
     font-family: 'Architects Daughter', sans-serif;
     font-weight: bolder;
+    margin-top: 15px;
 }
 
 .sort__input input
