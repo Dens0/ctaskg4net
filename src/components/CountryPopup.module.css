@@ -1,0 +1,50 @@
+.country__popup{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-family: 'Architects Daughter', sans-serif;
+    transform: translateY(-100%);
+    transition: .3s all;
+
+
+}
+.country__popupSlide{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-family: 'Architects Daughter', sans-serif;
+    transform: translateY(0);
+    transition: .3s all;
+}
+.country__flag
+{
+    display: block;
+    max-width: 100px;
+    margin-bottom: 30px;
+}
+.country__back{
+    display: block;
+    max-width: 35px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.country__box
+{
+    display: flex;
+    justify-content: space-between;
+}
+.country_bolder{
+    font-weight: bolder;
+}

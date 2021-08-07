@@ -1,0 +1,15 @@
+.country__name {
+    margin: 20px 0;
+    font-size: 20px;
+    font-family: 'Architects Daughter', sans-serif;
+    padding: 10px;
+    transition: .3s;
+}
+
+.country__name:hover {
+    background-color: dimgrey;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

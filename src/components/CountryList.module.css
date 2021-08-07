@@ -1,0 +1,22 @@
+.country__list
+{
+    list-style: none;
+    padding: 30px;
+    margin: 0;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.sort__input
+{
+    margin-bottom: 15px;
+    text-align: left;
+    font-family: 'Architects Daughter', sans-serif;
+    font-weight: bolder;
+}
+
+.sort__input input
+{
+    margin-left: 15px;
+    border-radius: 50%;
+    background-color: black;
+}
