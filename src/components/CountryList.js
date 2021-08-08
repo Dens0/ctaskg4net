@@ -27,6 +27,7 @@ const CountryList = () => {
                 }
             );
             if (!response.ok) {
+                setSearch('united');
                 throw new Error('Something went wrong!');
             }
             const data = await response.json();
@@ -40,22 +41,16 @@ const CountryList = () => {
     }, []);
     useEffect(() => {
         fetchCountries(countriesSearch);
-    }, [fetchCountries,countriesSearch]);
+    }, [fetchCountries,countriesSearch,sortCountries]);
+
 
     const handleCheck = () => {
-        setCheck(!check);
         const newCountryList = [...countries];
-
-
         if (!check) {
             newCountryList.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
             setSortCountries([...newCountryList]);
-            console.log(newCountryList, "check");
-
         } else if (check) {
             setCountries([...countries]);
-            console.log(countries, "!check");
-
         }
 
     };
@@ -65,10 +60,12 @@ const CountryList = () => {
         {
             setSearch('united')
         }
+        handleCheck()
     };
-
-
-    // console.log(countries);
+    const changeCheck = () => {
+        setCheck(!check);
+        console.log(check)
+    };
     return (<>
             <label className={classes.sort__input}>
                 Search
@@ -76,7 +73,7 @@ const CountryList = () => {
             </label>
             <label className={classes.sort__input}>
                 Alphabetical sort
-                <input type="checkbox" name="name" checked={check} onChange={handleCheck}/>
+                <input type="checkbox" name="name" checked={check} onClick={changeCheck} onChange={handleCheck}/>
             </label>
             <ul className={classes.country__list}>
                 {check ? sortCountries.map(country =>

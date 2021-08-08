@@ -1,3 +1,5 @@
+W przypadku gdy podczas dynamicznego wyszukiwania nie znajduje państw spełniających daną frazę to wówczas brana jest wartość domyślna "united".
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
