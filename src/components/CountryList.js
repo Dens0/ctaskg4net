@@ -3,26 +3,26 @@ import React, {useEffect, useState, useCallback,} from 'react'
 import classes from './CountryList.module.css'
 
 
-
 const CountryList = () => {
     const [countries, setCountries] = useState([]);
-    const [sortCountries,setSortCountries] = useState([]);
+    const [countriesSearch, setSearch] = useState('united');
+    const [sortCountries, setSortCountries] = useState([]);
 
     const [check, setCheck] = useState(false);
     // const [error, setError] = useState(null);
     // const [isLoading, setIsLoading] = useState(false);
 
-    const fetchCountries = useCallback(async () => {
-        // setIsLoading(true);
+    const fetchCountries = useCallback(async (countriesSearch) => {
+        console.log(countriesSearch);
+         // setIsLoading(true);
         // setError(null);
-        const url = 'https://restcountries.eu/rest/v2/name/united';
+        const url = `https://restcountries.eu/rest/v2/name/${countriesSearch}`;
         try {
 
             const response = await fetch(url,
                 {
                     headers: new Headers({
                         'Accept': 'application/json',
-
                     })
                 }
             );
@@ -39,31 +39,41 @@ const CountryList = () => {
         }
     }, []);
     useEffect(() => {
-        fetchCountries();
-    }, [fetchCountries]);
+        fetchCountries(countriesSearch);
+    }, [fetchCountries,countriesSearch]);
 
     const handleCheck = () => {
         setCheck(!check);
         const newCountryList = [...countries];
 
 
-        if(!check)
-        {
+        if (!check) {
             newCountryList.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
             setSortCountries([...newCountryList]);
             console.log(newCountryList, "check");
 
-        }
-        else if (check) {
+        } else if (check) {
             setCountries([...countries]);
             console.log(countries, "!check");
 
         }
 
     };
+    const valueHandler = (e) => {
+        setSearch(e.target.value);
+        if (e.target.value === '')
+        {
+            setSearch('united')
+        }
+    };
+
 
     // console.log(countries);
     return (<>
+            <label className={classes.sort__input}>
+                Search
+                <input type="text" onChange={valueHandler}/>
+            </label>
             <label className={classes.sort__input}>
                 Alphabetical sort
                 <input type="checkbox" name="name" checked={check} onChange={handleCheck}/>

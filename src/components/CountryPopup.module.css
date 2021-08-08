@@ -33,6 +33,7 @@
     display: block;
     max-width: 100px;
     margin-bottom: 30px;
+    border: 1px solid black;
 }
 .country__back{
     display: block;

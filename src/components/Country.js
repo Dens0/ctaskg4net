@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import classes from './Country.module.css'
 import CountryPopup from './CountryPopup'
-// import {CSSTransition} from 'react-transition-group';
-import Popup from 'react-animated-popup'
 
 const Country = (props) => {
 
